@@ -81,7 +81,7 @@ async def benchmark_retrieval_components(user_query, top_n=5):
     print(f"Reranked - Precision: {precision_reranked:.2f}, Recall: {recall_reranked:.2f}, Relevancy: {relevancy_reranked:.2f}")
 
 
-# Example usage
+
 if __name__ == "__main__":
     user_query = "Logitech mouse"
     

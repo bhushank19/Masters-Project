@@ -1,9 +1,10 @@
 import asyncio
 from playwright.async_api import async_playwright
 from bs4 import BeautifulSoup
-import diskcache as dc  # Import DiskCache
+import diskcache as dc  
 
-cache = dc.Cache('/tmp/web_scraping_cache')  # Create a cache instance
+# Create a cache instance
+cache = dc.Cache('/tmp/web_scraping_cache')  
 
 # Web scraping functions
 async def fetch_page_content(url):
@@ -23,7 +24,7 @@ async def cached_fetch_page_content(url):
     if url in cache:
         return cache[url]
     else:
-        content = await fetch_page_content(url)  # Await the async function
+        content = await fetch_page_content(url)  
         cache[url] = content
         return content
 
@@ -44,7 +45,7 @@ def parse_amazon_product_list(html_content):
         price_whole = product.select_one('.a-price-whole')
         price_fraction = product.select_one('.a-price-fraction')
         rating = product.select_one('.a-icon-alt')
-        review_count = product.select_one('.a-size-base')  # Selector for review count
+        review_count = product.select_one('.a-size-base')  
         image = product.select_one('.s-image')
         product_link = product.select_one('h2 a')['href'] if product.select_one('h2 a') else None
         
@@ -55,14 +56,14 @@ def parse_amazon_product_list(html_content):
             try:
                 review_count_value = int(review_count.text.replace(",", ""))
             except ValueError:
-                review_count_value = 0  # Set to 0 if invalid review count
+                review_count_value = 0  
             
             product_details = {
                 "title": title.text.strip(),
-                "description": 'No description',  # We can add description parsing later
+                "description": 'No description',  
                 "price": price,
-                "rating": rating.text.strip().split(" ")[0],  # Extract the numeric rating
-                "review_count": review_count_value,  # Use the validated review count
+                "rating": rating.text.strip().split(" ")[0],  
+                "review_count": review_count_value,  
                 "image": image['src'],
                 "link": f"https://www.amazon.com{product_link}"
             }
@@ -93,7 +94,7 @@ async def fetch_product_data(user_query: str, num_pages=2):
     
     # Log the number of products fetched and inspect the data
     print(f"Number of products fetched: {len(products)}")
-    for product in products[:5]:  # Print first 5 products for inspection
+    for product in products[:5]:  
         print(product)
     
     return products

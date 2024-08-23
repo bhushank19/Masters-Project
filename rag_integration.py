@@ -24,10 +24,10 @@ device = torch.device("mps" if torch.backends.mps.is_available() else "cpu")
 print(f"Using device: {device}")
 
 # Load the Ollama LLaMA model only once and reuse it across all functions
-llm = Ollama(model="mistral:latest")  # Use a smaller model for faster performance
+llm = Ollama(model="mistral:latest") 
 
 async def refine_query_with_llm(user_query):
-    # Create a concise prompt for the LLM, focusing on generating simple and short search keywords
+    # Used a concise prompt for the LLM, focusing on generating simple and short search keywords
     refinement_prompt = (
         f"Transform the following query into a concise, keyword-based format suitable for an e-commerce search engine. "
         f"Include only essential keywords related to the main product and its key features, don't include key feature word. Remove any extraneous details. "
@@ -70,7 +70,7 @@ async def filter_irrelevant_products(products, refined_query):
     
     # Log the number of relevant products after filtering
     print(f"Number of relevant products after filtering: {len(filtered_products)}")
-    for product in filtered_products[:5]:  # Print first 5 filtered products for inspection
+    for product in filtered_products[:5]:  
         print(product)
     
     return filtered_products
@@ -87,11 +87,11 @@ async def setup_rag_with_web_data(products):
     def process_product(product):
         product_text = (
             f"Title: {product['title']}\n"
-            f"Description: {product['description']}\n"  # Ensure description is included
+            f"Description: {product['description']}\n"  
             f"Price: {product['price']}\n"
             f"Rating: {product['rating']}\n"
             f"Review Count: {product['review_count']}\n"
-            f"Link: {product['link']}"  # Include the product link
+            f"Link: {product['link']}"  
         )
         return product_text
 
@@ -212,4 +212,4 @@ async def generate_recommendations_with_llm(products):
     if response and response.generations and len(response.generations) > 0:
         return response.generations[0][0].text.strip()
     else:
-        return recommendation_text  # Fall back to the structured response if LLM fails
+        return recommendation_text 

@@ -22,7 +22,7 @@ async def benchmark_web_scraping(user_queries, num_pages=2):
 
         # Calculate metrics
         num_products = len(products)
-        errors = sum(1 for product in products if not product.get('title') or not product.get('price'))  # Example error condition
+        errors = sum(1 for product in products if not product.get('title') or not product.get('price'))  
         error_rate = errors / num_products if num_products > 0 else 0
 
         # Log the results for this query
