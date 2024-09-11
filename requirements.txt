@@ -1,0 +1,17 @@
+
+streamlit==1.15.0
+playwright==1.30.0
+beautifulsoup4==4.11.1
+diskcache==5.4.0
+langchain==0.0.64
+langchain_huggingface==0.0.5
+langchain_community==0.0.7
+langchain_cohere==0.0.3
+huggingface-hub==0.10.0
+torch==2.0.1
+sentence-transformers==2.2.2
+faiss-cpu==1.7.2
+Cohere==2.1.1
+asyncio==3.4.3
+bs4==0.0.1
+python-dotenv==0.21.0
