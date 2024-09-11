@@ -123,17 +123,6 @@ The system has been evaluated across multiple metrics:
 - **Query Refinement**: LLM refinement time measured (e.g., 12.84 seconds for "Samsung Galaxy").
 - **RAG Pipeline**: Precision, recall, and relevancy scores for retrieval and re-ranking stages (e.g., BM25 precision = 0.75).
 
-## Screenshots
-
-### Example Query: "Logitech Mouse"
-- **Initial Input**: "Suggest a good wireless mouse from Logitech."
-- **Refined Query**: "wireless+mouse+logitech"
-- **Top Recommendations**:
-  1. Logitech MX Master 3
-  2. Logitech G502 Wireless
-  
-(Screenshot here)
-
 ## Future Work
 
 - **Dynamic Data Sources**: Extend scraping to more e-commerce platforms beyond Amazon.
