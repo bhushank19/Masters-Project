@@ -29,9 +29,7 @@ This project was developed as part of the MSc in Computer Science (Artificial In
 - [Usage](#usage)
 - [Architecture](#architecture)
 - [Performance Benchmarking](#performance-benchmarking)
-- [Screenshots](#screenshots)
 - [Future Work](#future-work)
-- [Acknowledgements](#acknowledgements)
 
 ## Installation
 
@@ -43,7 +41,7 @@ Ensure that the following are installed:
 ### Steps
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/your-username/rag-product-recommendation.git
+   git clone https://github.com/bhushank19/Masters-Project.git
    cd rag-product-recommendation
    ```
 
@@ -62,13 +60,6 @@ Ensure that the following are installed:
    ```bash
    playwright install
    ```
-
-### Docker Setup (Optional)
-You can use Docker to run the web scraping component in an isolated environment:
-```bash
-docker build -t product-recommendation .
-docker run -p 8501:8501 product-recommendation
-```
 
 ## Usage
 
